@@ -372,7 +372,7 @@ def perm_to_text(reg):
 def print_reg(name, value):
     cam_reg = CAMERA_PARAMETERS[name]
     if 'values' in cam_reg and isinstance(cam_reg['values'], dict):
-        disp_value = '%s (%s)' % (value, cam_reg['values'][value])
+        disp_value = '%s (%s)' % (value, cam_reg['values'].get(value,'unexpected value = %s' % value) )
     else:
         disp_value = '%s' % value
     print ('%s %s (%s): %s' % (
